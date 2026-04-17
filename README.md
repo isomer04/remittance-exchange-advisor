@@ -15,7 +15,9 @@ In regulated industries, the things you least want an LLM to improvise are prici
 
 The `google-genai` SDK's **automatic function calling** handles the orchestration: you pass raw Python functions as tools, and the SDK auto-generates the schemas from your docstrings, calls your functions when Gemini requests them, and feeds the results back to the model.
 
-## Quick Start
+## Quick Start (Local Development)
+
+### Setup Instructions
 
 ```bash
 # 1. Clone or download this project
@@ -28,16 +30,37 @@ source .venv/bin/activate   # macOS/Linux
 # 3. Install dependencies
 pip install -r requirements.txt
 
-# 4. Add your API key
-#    Get one from https://aistudio.google.com/apikey
-#    Then edit .env:
-echo "GOOGLE_API_KEY=your_key_here" > .env
+# 4. Configure your API key
+#    a. Copy the template file
+cp .env.example .env
 
-# 5. Run the app
+#    b. Get your API key from: https://aistudio.google.com/apikey
+#
+#    c. Edit .env and replace 'your_api_key_here' with your actual API key
+#       GOOGLE_API_KEY=<your_actual_api_key>
+#
+#    ⚠️  IMPORTANT: Never commit .env to version control!
+#        .env is in .gitignore and will be excluded automatically.
+
+# 5. Run the app locally
 streamlit run app.py
 ```
 
 Open `http://localhost:8501` in your browser.
+
+### Environment Variables
+
+The app uses the following environment variable (managed by `python-dotenv`):
+
+| Variable         | Purpose                             | Example                                      |
+| ---------------- | ----------------------------------- | -------------------------------------------- |
+| `GOOGLE_API_KEY` | Gemini API key for LLM interactions | `abc123xyz...` (from your Google AI account) |
+
+**Security Notes:**
+
+- The `.env` file is automatically excluded from version control (see `.gitignore`)
+- Each developer should create their own `.env` file locally with their own API key
+- Never share or commit your `.env` file
 
 ## Project Structure
 
@@ -45,7 +68,9 @@ Open `http://localhost:8501` in your browser.
 remittance_exchange_advisor/
 ├── app.py                          # Streamlit chat UI (google-genai SDK)
 ├── requirements.txt                # Python dependencies
-├── .env                            # API key (local dev only)
+├── .env                            # API key (local dev only — create from .env.example)
+├── .env.example                    # Template for .env (safe to commit)
+├── .gitignore                      # Excludes .env and other sensitive files
 ├── rate_sheet.csv                  # Governed exchange rate & fee data (15+ corridors)
 └── README.md                       # This file
 ```
@@ -119,7 +144,9 @@ The `google-genai` SDK reads your function's docstring and type hints to auto-ge
 
 Better docstrings = more reliable tool calls. It's prompt engineering applied to function signatures.
 
-## Deploy on Replit
+## Deploy on Replit (Optional)
+
+If you prefer to run the app on Replit instead of locally:
 
 1. Create a new Replit — choose "Import from GitHub" or "Upload folder" and upload all the files.
 2. In the Replit sidebar, go to **Secrets** (the lock icon) and add:
@@ -127,6 +154,8 @@ Better docstrings = more reliable tool calls. It's prompt engineering applied to
    - Value: your Google AI Studio API key
 3. Hit **Run**. Streamlit will launch automatically.
 4. Click **Deploy** to get a public URL.
+
+**Note:** For local development, use the **Quick Start** section above instead.
 
 ## Extending This
 
