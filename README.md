@@ -49,8 +49,7 @@ streamlit run app.py
 Open `http://localhost:8501` in your browser.
 
 ## Demo
-
-
+<img width="1201" height="1202" alt="exchange agent demo_1" src="https://github.com/user-attachments/assets/980ccb79-2464-45fd-bce7-909c46f46a6f" />
 
 ### Environment Variables
 
