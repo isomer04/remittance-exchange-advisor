@@ -1,0 +1,16 @@
+from_country,from_currency,to_country,to_currency,exchange_rate,transfer_fee_pct,transfer_fee_min
+United States,USD,India,INR,83.50,2.5,3.0
+United States,USD,Philippines,PHP,57.80,2.0,2.5
+United States,USD,Mexico,MXN,17.25,1.8,2.0
+United States,USD,Pakistan,PKR,278.50,3.0,4.0
+United States,USD,Nigeria,NGN,1545.00,3.5,5.0
+United States,USD,Brazil,BRL,4.95,2.5,3.0
+Canada,CAD,India,INR,61.80,2.8,3.5
+Canada,CAD,Philippines,PHP,42.50,2.2,3.0
+Europe,EUR,India,INR,91.25,2.2,2.5
+Europe,EUR,Philippines,PHP,63.00,2.0,2.5
+United Kingdom,GBP,India,INR,105.50,2.3,3.0
+Australia,AUD,Philippines,PHP,38.20,2.5,3.0
+United States,USD,United Kingdom,GBP,0.79,1.5,1.5
+Canada,CAD,United States,USD,0.74,1.0,1.0
+Australia,AUD,United States,USD,0.66,1.2,1.5
